@@ -1,0 +1,11 @@
+{
+  "name": "prettier-standard-formatter",
+  "version": "1.0.0",
+  "description": "Prettier for JavaScript Standard Style",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "prettier": "^0.0.4",
+    "standard": "^8.6.0"
+  }
+}
