@@ -14,3 +14,7 @@ prettierStandard.format(source).then(console.log)
 ## Editor plugins
 
 - __Atom:__ [prettier-standard-formatter](https://atom.io/packages/prettier-standard-formatter)
+
+## CLI?
+
+Please contribute ^^
