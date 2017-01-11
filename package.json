@@ -1,11 +1,13 @@
 {
   "name": "prettier-standard-formatter",
-  "version": "0.0.111111111111111",
+  "version": "0.0.222222222222222",
   "description": "Prettier for JavaScript Standard Style",
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
     "prettier": "^0.0.4",
     "standard": "^8.6.0"
-  }
+  },
+  "repository": "git@github.com:dtinth/prettier-standard-formatter.git",
+  "author": "Thai Pangsakulyanont <dtinth@spacet.me>"
 }
