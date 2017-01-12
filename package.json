@@ -6,6 +6,7 @@
   "bin": "cli.js",
   "license": "MIT",
   "dependencies": {
+    "globby": "^6.1.0",
     "meow": "^3.7.0",
     "prettier": "^0.0.4",
     "standard": "^8.6.0"
