@@ -15,6 +15,28 @@ prettierStandard.format(source).then(console.log)
 
 - __Atom:__ [prettier-standard-formatter](https://atom.io/packages/prettier-standard-formatter)
 
-## CLI?
+## CLI
 
-Please contribute ^^
+### Local
+
+#### Installation
+```sh
+$ yarn add --dev prettier-standard-formatter
+```
+
+#### Usage
+```sh
+$ ./node_modules/.bin/prettier-standard-formatter [<file|glob> ...]
+```
+
+### Global
+
+#### Installation
+```sh
+$ yarn global add prettier-standard-formatter
+```
+
+#### Usage
+```sh
+$ prettier-standard-formatter [<file|glob> ...]
+```

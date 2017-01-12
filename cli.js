@@ -20,6 +20,15 @@ const format = paths => {
   })
 }
 
-const cli = meow()
+const cli = meow(`
+  Usage
+    $ prettier-standard-formatter [<file|glob> ...]
+
+  Examples
+    $ prettier-standard-formatter
+    $ prettier-standard-formatter index.js
+    $ prettier-standard-formatter foo.js bar.js
+    $ prettier-standard-formatter index.js src/**/*.js
+`)
 
 globby(cli.input).then(format)
