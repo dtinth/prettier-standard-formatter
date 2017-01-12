@@ -9,6 +9,7 @@
     "globby": "^6.1.0",
     "meow": "^3.7.0",
     "prettier": "^0.0.4",
+    "resolve-cwd": "^1.0.0",
     "standard": "^8.6.0"
   },
   "repository": "git@github.com:dtinth/prettier-standard-formatter.git",

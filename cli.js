@@ -1,6 +1,15 @@
 #!/usr/bin/env node
 'use strict'
 
+const resolveCwd = require('resolve-cwd')
+
+const localCLI = resolveCwd('prettier-standard-formatter/cli')
+
+if (localCLI && localCLI !== __filename) {
+  require(localCLI)
+  return
+}
+
 const fs = require('fs')
 const globby = require('globby')
 const meow = require('meow')
