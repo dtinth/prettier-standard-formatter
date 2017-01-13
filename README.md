@@ -17,26 +17,23 @@ prettierStandard.format(source).then(console.log)
 
 ## CLI
 
-### Local
-
-#### Installation
-```sh
-$ yarn add --dev prettier-standard-formatter
-```
-
-#### Usage
-```sh
-$ ./node_modules/.bin/prettier-standard-formatter [<file|glob> ...]
-```
-
-### Global
-
-#### Installation
+### Installation
 ```sh
 $ yarn global add prettier-standard-formatter
 ```
 
-#### Usage
+### Usage
 ```sh
-$ prettier-standard-formatter [<file|glob> ...]
+$ prettier-standard-formatter --help
+
+  Usage
+    $ prettier-standard-formatter [<file|glob> ...]
+
+  Examples
+    $ prettier-standard-formatter
+    $ prettier-standard-formatter index.js
+    $ prettier-standard-formatter foo.js bar.js
+    $ prettier-standard-formatter index.js src/**/*.js
 ```
+
+_Note: CLI will use your local installation of Prettier Standard Formatter if it's available._
