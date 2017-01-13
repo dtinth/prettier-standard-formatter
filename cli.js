@@ -13,19 +13,31 @@ if (localCLI && localCLI !== __filename) {
 const fs = require('fs')
 const globby = require('globby')
 const meow = require('meow')
+const recursive = require('recursive-readdir')
 const prettierStandard = require('./')
 
-const format = paths => {
-  paths.forEach(path => {
-    fs.readFile(path, 'utf-8', (err, sourceCode) => {
-      if (err) throw err
-      prettierStandard.format(sourceCode).then(output => {
-        fs.writeFile(path, output, 'utf-8', err => {
-          if (err) throw err
-          console.log(path)
-        })
+const format = path => {
+  fs.readFile(path, 'utf-8', (err, sourceCode) => {
+    if (err) throw err
+    prettierStandard.format(sourceCode).then(output => {
+      fs.writeFile(path, output, 'utf-8', err => {
+        if (err) throw err
+        console.log(path)
       })
     })
+  })
+}
+
+const processPaths = paths => {
+  paths.forEach(path => {
+    if (!fs.lstatSync(path).isDirectory()) {
+      format(path)
+    } else {
+      recursive(path, (err, files) => {
+        if (err) throw err
+        files.forEach(format)
+      })
+    }
   })
 }
 
@@ -40,4 +52,4 @@ const cli = meow(`
     $ prettier-standard-formatter index.js src/**/*.js
 `)
 
-globby(cli.input).then(format)
+globby(cli.input).then(processPaths)
