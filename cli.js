@@ -16,6 +16,12 @@ const meow = require('meow')
 const recursive = require('recursive-readdir')
 const prettierStandard = require('./')
 
+const DEFAULT_IGNORE_LIST = [
+  '.git',
+  'node_modules',
+  '!*.js'
+]
+
 const format = path => {
   fs.readFile(path, 'utf-8', (err, sourceCode) => {
     if (err) throw err
@@ -33,7 +39,7 @@ const processPaths = paths => {
     if (!fs.lstatSync(path).isDirectory()) {
       format(path)
     } else {
-      recursive(path, (err, files) => {
+      recursive(path, DEFAULT_IGNORE_LIST, (err, files) => {
         if (err) throw err
         files.forEach(format)
       })
