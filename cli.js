@@ -21,11 +21,7 @@ function run () {
   const recursive = require('recursive-readdir')
   const prettierStandard = require('./')
 
-  const DEFAULT_IGNORE_LIST = [
-    '.git',
-    'node_modules',
-    '!*.js'
-  ]
+  const DEFAULT_IGNORE_LIST = [ '.git', 'node_modules', '!*.js' ]
 
   const format = path => {
     fs.readFile(path, 'utf-8', (err, sourceCode) => {
@@ -52,7 +48,8 @@ function run () {
     })
   }
 
-  const cli = meow(`
+  const cli = meow(
+    `
     Usage
       $ prettier-standard-formatter [<file|glob> ...]
 
@@ -61,7 +58,8 @@ function run () {
       $ prettier-standard-formatter index.js
       $ prettier-standard-formatter foo.js bar.js
       $ prettier-standard-formatter index.js src/**/*.js
-  `)
+  `
+  )
 
   if (!cli.input.length) {
     cli.showHelp(1)
