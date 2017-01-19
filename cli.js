@@ -58,4 +58,8 @@ const cli = meow(`
     $ prettier-standard-formatter index.js src/**/*.js
 `)
 
+if (!cli.input.length) {
+  cli.showHelp(1)
+}
+
 globby(cli.input).then(processPaths)
