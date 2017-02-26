@@ -5,9 +5,9 @@ exports.format = source => new Promise((resolve, reject) => {
   const pretty = prettier.format(source, {
     printWidth: 80,
     tabWidth: 2,
-    useFlowParser: false,
+    parser: 'babylon',
     singleQuote: true,
-    trailingComma: false,
+    trailingComma: 'none',
     bracketSpacing: true
   })
   standard.lintText(pretty, { fix: true }, (err, result) => {
