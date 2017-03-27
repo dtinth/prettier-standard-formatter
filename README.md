@@ -5,15 +5,16 @@ This tool combines the [prettier](https://github.com/jlongster/prettier) pretty-
 ## API
 
 ```js
-const prettierSemistandard = require('prettier-semistandard')
+import prettier from 'prettier-semistandard';
+import { readFileSync } from 'fs';
 
-// There is no configuration, just like standard.
-prettierSemistandard.format(source).then(console.log)
+const source = readFileSync('index.js', 'utf8');
+prettier.format(
+  source
+).then(
+  console.log
+);
 ```
-
-## Editor plugins
-
-- __Atom:__ [prettier-semistandard](https://atom.io/packages/prettier-semistandard)
 
 ## CLI
 
@@ -36,4 +37,4 @@ $ prettier-semistandard --help
     $ prettier-semistandard index.js src/**/*.js
 ```
 
-_Note: CLI will use your local installation of Prettier Standard Formatter if it's available._
+_Note: CLI will use your local installation of Prettier Semistandard if it's available._
