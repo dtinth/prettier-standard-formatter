@@ -2,8 +2,8 @@
   "name": "prettier-semistandard",
   "version": "0.0.0",
   "description": "Prettier for JavaScript Semistandard Style",
-  "main": "index.js",
-  "bin": "cli.js",
+  "main": "src/index.js",
+  "bin": "src/cli.js",
   "license": "MIT",
   "dependencies": {
     "globby": "^6.1.0",
