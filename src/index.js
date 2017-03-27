@@ -9,26 +9,28 @@ const recursiveReaddir = Promise.promisify(require('recursive-readdir'));
 
 // Run linter on a string
 // :: inCode -> ( Promise -> outCode )
-const lint = code => new Promise((resolve, reject) =>
+const lint = code =>
+  new Promise((resolve, reject) =>
   // Standard-engine doesn't support promisify
-  semistandard.lintText(code, { fix: true }, (error, result) => {
-    if (error) {
-      return reject(error);
-    }
-    const output = result.results[0].output;
-    return resolve(output || code);
-  }));
+    semistandard.lintText(code, { fix: true }, (error, result) => {
+      if (error) {
+        return reject(error);
+      }
+      const output = result.results[0].output;
+      return resolve(output || code);
+    }));
 
 // Run prettier on a string
 // :: inCode -> outCode
-const pretty = code => prettier.format(code, {
-  printWidth: 80,
-  tabWidth: 2,
-  parser: 'babylon',
-  singleQuote: true,
-  trailingComma: 'none',
-  bracketSpacing: true
-});
+const pretty = code =>
+  prettier.format(code, {
+    printWidth: 80,
+    tabWidth: 2,
+    parser: 'babylon',
+    singleQuote: true,
+    trailingComma: 'none',
+    bracketSpacing: true
+  });
 
 // Run formatter on a string
 // :: inCode -> ( Promise -> outCode )
