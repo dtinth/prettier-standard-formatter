@@ -13,6 +13,5 @@
     "resolve-cwd": "^1.0.0",
     "standard": "^8.6.0"
   },
-  "repository": "git@github.com:dtinth/prettier-standard-formatter.git",
-  "author": "Thai Pangsakulyanont <dtinth@spacet.me>"
+  "repository": "git@github.com:dtinth/prettier-standard-formatter.git"
 }
