@@ -6,9 +6,12 @@
   "bin": "src/cli.js",
   "license": "MIT",
   "dependencies": {
+    "bluebird": "^3.5.0",
     "globby": "^6.1.0",
     "meow": "^3.7.0",
+    "mz": "^2.6.0",
     "prettier": "^0.19.0",
+    "ramda": "^0.23.0",
     "recursive-readdir": "^2.1.0",
     "resolve-cwd": "^1.0.0",
     "semistandard": "^8.6.0"
@@ -20,6 +23,7 @@
     "tape": "^4.6.3"
   },
   "scripts": {
+    "format": "node ./src/cli.js ./**/*.js",
     "lint": "semistandard | snazzy",
     "test": "npm run lint && tape ./test/**/*.js | tee tap-tests.log | faucet",
     "prepublish": "npm test"
