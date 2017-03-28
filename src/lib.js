@@ -61,9 +61,9 @@ const formatFile = path =>
     fs.readFile
   )(path);
 
-Object.assign(exports, {
+module.exports = {
   pretty,
   format,
   formatFile,
   formatPaths
-});
+};

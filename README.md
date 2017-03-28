@@ -5,11 +5,11 @@ This tool combines the [prettier](https://github.com/jlongster/prettier) pretty-
 ## API
 
 ```js
-import prettier from 'prettier-semistandard';
+import format from 'prettier-semistandard';
 import { readFileSync } from 'fs';
 
 const source = readFileSync('index.js', 'utf8');
-prettier.format(
+format(
   source
 ).then(
   console.log
