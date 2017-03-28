@@ -1,2 +1,2 @@
-'use strict';
-module.exports = require('./lib').format;
+'use strict'
+module.exports = require('./lib').format

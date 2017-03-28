@@ -1,9 +1,9 @@
-const Promise = require('bluebird');
-const R = require('ramda');
-const fs = require('mz/fs');
-const prettier = require('prettier');
-const linter = require('standard');
-const recursiveReaddir = Promise.promisify(require('recursive-readdir'));
+const Promise = require('bluebird')
+const R = require('ramda')
+const fs = require('mz/fs')
+const prettier = require('prettier')
+const linter = require('standard')
+const recursiveReaddir = Promise.promisify(require('recursive-readdir'))
 
 // Run linter on a string
 // :: inCode -> ( Promise -> outCode )
@@ -12,10 +12,10 @@ const lint = code =>
   // Standard-engine doesn't support promisify
     linter.lintText(code, { fix: true }, (error, result) => {
       if (error) {
-        return reject(error);
+        return reject(error)
       }
-      return resolve(result.results[0].output || code);
-    }));
+      return resolve(result.results[0].output || code)
+    }))
 
 // Run prettier on a string
 // :: inCode -> outCode
@@ -27,11 +27,11 @@ const pretty = code =>
     singleQuote: true,
     trailingComma: 'none',
     bracketSpacing: true
-  });
+  })
 
 // Run formatter on a string
 // :: inCode -> ( Promise -> outCode )
-const format = R.composeP(lint, pretty, Promise.resolve);
+const format = R.composeP(lint, pretty, Promise.resolve)
 
 // Run formatFile on a list of file & dir paths
 // :: ignoreGlobs -> filePaths -> ( Promise -> filePaths )
@@ -47,7 +47,7 @@ const formatPaths = R.curry((ignore, paths) =>
         fs.lstat
       )(path)),
     Promise.resolve
-  )(paths));
+  )(paths))
 
 // Run formatter on a file, overwrite it, then return path
 // :: filePath -> ( Promise -> filePath )
@@ -58,7 +58,7 @@ const formatFile = path =>
     format,
     buffer => buffer.toString(),
     fs.readFile
-  )(path);
+  )(path)
 
 module.exports = {
   lint,
@@ -66,4 +66,4 @@ module.exports = {
   format,
   formatFile,
   formatPaths
-};
+}
