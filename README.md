@@ -36,5 +36,3 @@ $ prettier-semistandard --help
     $ prettier-semistandard foo.js bar.js
     $ prettier-semistandard index.js src/**/*.js
 ```
-
-_Note: CLI will use your local installation of Prettier Semistandard if it's available._

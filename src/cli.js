@@ -2,7 +2,6 @@
 'use strict';
 
 const R = require('ramda');
-const resolveCwd = require('resolve-cwd');
 const globby = require('globby');
 const meow = require('meow');
 const stdin = require('get-stdin');
@@ -23,13 +22,7 @@ const cli = meow(
 `
 );
 
-// Try and find the path of a local copy
-const localCliPath = resolveCwd('prettier-semistandard/cli');
-
-if (localCliPath && localCliPath !== __filename) {
-  // Local copy already exists; load it instead
-  require(localCliPath);
-} else if (cli.input.length === 0) {
+if (cli.input.length === 0) {
   // No args used; show help
   cli.showHelp(1);
 } else {

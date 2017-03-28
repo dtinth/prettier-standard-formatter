@@ -14,7 +14,6 @@
     "prettier": "^0.22.0",
     "ramda": "^0.23.0",
     "recursive-readdir": "^2.1.1",
-    "resolve-cwd": "^1.0.0",
     "semistandard": "^10.0.0"
   },
   "devDependencies": {
