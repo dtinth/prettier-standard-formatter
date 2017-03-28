@@ -5,11 +5,10 @@ const R = require('ramda');
 const resolveCwd = require('resolve-cwd');
 const globby = require('globby');
 const meow = require('meow');
-const lib = require('./index.js');
+const stdin = require('get-stdin');
+const lib = require('./lib');
 
 const DEFAULT_IGNORE_LIST = ['.git', 'node_modules', '!*.js'];
-
-const localCliPath = resolveCwd('prettier-semistandard/cli');
 
 const cli = meow(
   `
@@ -24,6 +23,9 @@ const cli = meow(
 `
 );
 
+// Try and find the path of a local copy
+const localCliPath = resolveCwd('prettier-semistandard/cli');
+
 if (localCliPath && localCliPath !== __filename) {
   // Local copy already exists; load it instead
   require(localCliPath);
@@ -32,9 +34,16 @@ if (localCliPath && localCliPath !== __filename) {
   cli.showHelp(1);
 } else {
   // Run CLI
-  R.composeP(
-    R.map(p => p.then(console.log)),
-    lib.formatPaths(DEFAULT_IGNORE_LIST),
-    globby
-  )(cli.input);
+  stdin().then(data => {
+    if (data) {
+      // Process stdin
+      return R.composeP(s => process.stdout.write(s), lib.format);
+    }
+    // Process a list of globs
+    return R.composeP(
+      R.map(p => p.then(console.log)),
+      lib.formatPaths(DEFAULT_IGNORE_LIST),
+      globby
+    )(cli.input);
+  });
 }

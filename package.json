@@ -1,12 +1,13 @@
 {
   "name": "prettier-semistandard",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Prettier for JavaScript Semistandard Style",
   "main": "src/index.js",
   "bin": "src/cli.js",
   "license": "MIT",
   "dependencies": {
     "bluebird": "^3.5.0",
+    "get-stdin": "^5.0.1",
     "globby": "^6.1.0",
     "meow": "^3.7.0",
     "mz": "^2.6.0",
