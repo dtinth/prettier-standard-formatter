@@ -12,13 +12,13 @@ const DEFAULT_IGNORE_LIST = ['.git', 'node_modules', '!*.js'];
 const cli = meow(
   `
   Usage
-    $ prettier-semistandard [<file|glob> ...]
+    $ prettier-standard-formatter [<file|glob> ...]
 
   Examples
-    $ prettier-semistandard
-    $ prettier-semistandard index.js
-    $ prettier-semistandard foo.js bar.js
-    $ prettier-semistandard index.js src/**/*.js
+    $ prettier-standard-formatter
+    $ prettier-standard-formatter index.js
+    $ prettier-standard-formatter foo.js bar.js
+    $ prettier-standard-formatter index.js src/**/*.js
 `
 );
 

@@ -10,10 +10,10 @@ tape.test('lib.lint', test => {
   test.plan(1);
 
   lib
-    .lint('console.log(1);\n')
+    .lint('console.log(1)\n')
     .catch(R.identity)
     .then(result =>
-      test.equal(result, 'console.log(1);\n', 'lint should lint correctly'));
+      test.equal(result, 'console.log(1)\n', 'lint should lint correctly'));
 });
 
 tape.test('lib.pretty', test => {
@@ -35,7 +35,7 @@ tape.test('lib.format', test => {
     .then(result =>
       test.equal(
         result,
-        "import x from 'x';\n\nx(a, b, 'c');\n",
+        "import x from 'x'\n\nx(a, b, 'c')\n",
         'format should format correctly'
       ));
 });
@@ -55,7 +55,7 @@ tape.test('lib.formatFile', test => {
     .then(result =>
       test.equal(
         result,
-        `console.log('test');\n`,
+        `console.log('test')\n`,
         'formatFile should format file correctly'
       ));
 });
@@ -92,7 +92,7 @@ tape.test('lib.formatPaths', test => {
     .then(files => {
       test.deepEqual(
         files,
-        [`console.log('0');\n`, `console.log('1');\n`, `console.log('2');\n`],
+        [`console.log('0')\n`, `console.log('1')\n`, `console.log('2')\n`],
         'formatPaths should format an array of file & directory paths'
       );
     })

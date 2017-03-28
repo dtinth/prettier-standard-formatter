@@ -27,7 +27,7 @@ tape.test('cli', test => {
         stdio: 'pipe'
       })
       .toString(),
-    `console.log('123');\n`,
+    `console.log('123')\n`,
     'stdin should be processed if provided'
   );
 
@@ -38,7 +38,7 @@ tape.test('cli', test => {
 
   test.equal(
     fs.readFileSync('test/.temp/cli/1', 'utf8'),
-    `console.log('0');\n`,
+    `console.log('0')\n`,
     'Globs should be processed if stdin not provided'
   );
 });

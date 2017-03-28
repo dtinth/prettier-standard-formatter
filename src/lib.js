@@ -2,7 +2,7 @@ const Promise = require('bluebird');
 const R = require('ramda');
 const fs = require('mz/fs');
 const prettier = require('prettier');
-const linter = require('semistandard');
+const linter = require('standard');
 const recursiveReaddir = Promise.promisify(require('recursive-readdir'));
 
 // Run linter on a string

@@ -1,7 +1,7 @@
 {
-  "name": "prettier-semistandard",
+  "name": "prettier-standard-formatter",
   "version": "0.1.0",
-  "description": "Prettier for JavaScript Semistandard Style",
+  "description": "Prettier for JavaScript Standard Style",
   "main": "src/index.js",
   "bin": "src/cli.js",
   "license": "MIT",
@@ -14,12 +14,13 @@
     "prettier": "^0.22.0",
     "ramda": "^0.23.0",
     "recursive-readdir": "^2.1.1",
-    "semistandard": "^10.0.0"
+    "standard": "^9.0.2"
   },
   "devDependencies": {
     "faucet": "0.0.1",
     "mkdirp": "^0.5.1",
     "rimraf": "^2.6.1",
+    "semistandard": "^10.0.0",
     "snazzy": "^6.0.0",
     "tap-xunit": "^1.7.0",
     "tape": "^4.6.3"
@@ -30,7 +31,7 @@
     "test": "npm run lint && tape ./test/**/*.js | tee tap-tests.log | faucet",
     "prepublish": "npm test"
   },
-  "repository": "https://github.com/conqa/prettier-semistandard.git",
+  "repository": "https://github.com/dtinth/prettier-standard-formatter.git",
   "semistandard": {
     "env": {
       "node": true
