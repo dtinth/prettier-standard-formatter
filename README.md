@@ -1,4 +1,4 @@
-# prettier-semistandard
+# prettier-semistandard [![Circle CI](https://circleci.com/gh/conqa/prettier-semistandard.png?circle-token=c60d4bd93940038f07fa0ef1645b520d25ea7bcc)](https://circleci.com/gh/conqa/prettier-semistandard)
 
 This tool combines the [prettier](https://github.com/jlongster/prettier) pretty-printer with the popular configuration-free [JavaScript Standard Style](http://standardjs.com/).
 
