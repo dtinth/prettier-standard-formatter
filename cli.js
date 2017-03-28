@@ -4,7 +4,7 @@ main()
 
 function main () {
   const resolveCwd = require('resolve-cwd')
-  const localCLI = resolveCwd('prettier-standard-formatter/cli')
+  const localCLI = resolveCwd('prettier-semistandard/cli')
 
   if (localCLI && localCLI !== __filename) {
     require(localCLI)
@@ -19,14 +19,14 @@ function run () {
   const globby = require('globby')
   const meow = require('meow')
   const recursive = require('recursive-readdir')
-  const prettierStandard = require('./')
+  const prettierSemistandard = require('./')
 
   const DEFAULT_IGNORE_LIST = ['.git', 'node_modules', '!*.js']
 
   const format = path => {
     fs.readFile(path, 'utf-8', (err, sourceCode) => {
       if (err) throw err
-      prettierStandard.format(sourceCode).then(output => {
+      prettierSemistandard.format(sourceCode).then(output => {
         fs.writeFile(path, output, 'utf-8', err => {
           if (err) throw err
           console.log(path)
@@ -51,13 +51,13 @@ function run () {
   const cli = meow(
     `
     Usage
-      $ prettier-standard-formatter [<file|glob> ...]
+      $ prettier-semistandard [<file|glob> ...]
 
     Examples
-      $ prettier-standard-formatter
-      $ prettier-standard-formatter index.js
-      $ prettier-standard-formatter foo.js bar.js
-      $ prettier-standard-formatter index.js src/**/*.js
+      $ prettier-semistandard
+      $ prettier-semistandard index.js
+      $ prettier-semistandard foo.js bar.js
+      $ prettier-semistandard index.js src/**/*.js
   `
   )
 

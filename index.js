@@ -1,5 +1,5 @@
 const prettier = require('prettier')
-const standard = require('standard')
+const semistandard = require('semistandard')
 
 exports.format = source => new Promise((resolve, reject) => {
   const pretty = prettier.format(source, {
@@ -10,13 +10,13 @@ exports.format = source => new Promise((resolve, reject) => {
     trailingComma: 'none',
     bracketSpacing: true
   })
-  standard.lintText(pretty, { fix: true }, (err, result) => {
+  semistandard.lintText(pretty, { fix: true }, (err, result) => {
     if (err) {
       return reject(err)
     }
     const output = result.results[0].output
     if (typeof output !== 'string') {
-      return reject(new Error('Expected a string back from standard'))
+      return reject(new Error('Expected a string back from linter'))
     }
     resolve(output)
   })

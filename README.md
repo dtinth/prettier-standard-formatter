@@ -1,39 +1,39 @@
-# prettier-standard-formatter
+# prettier-semistandard
 
 This tool combines the [prettier](https://github.com/jlongster/prettier) pretty-printer with the popular configuration-free [JavaScript Standard Style](http://standardjs.com/).
 
 ## API
 
 ```js
-const prettierStandard = require('prettier-standard')
+const prettierSemistandard = require('prettier-semistandard')
 
 // There is no configuration, just like standard.
-prettierStandard.format(source).then(console.log)
+prettierSemistandard.format(source).then(console.log)
 ```
 
 ## Editor plugins
 
-- __Atom:__ [prettier-standard-formatter](https://atom.io/packages/prettier-standard-formatter)
+- __Atom:__ [prettier-semistandard](https://atom.io/packages/prettier-semistandard)
 
 ## CLI
 
 ### Installation
 ```sh
-$ yarn global add prettier-standard-formatter
+$ yarn global add prettier-semistandard
 ```
 
 ### Usage
 ```sh
-$ prettier-standard-formatter --help
+$ prettier-semistandard --help
 
   Usage
-    $ prettier-standard-formatter [<file|glob> ...]
+    $ prettier-semistandard [<file|glob> ...]
 
   Examples
-    $ prettier-standard-formatter
-    $ prettier-standard-formatter index.js
-    $ prettier-standard-formatter foo.js bar.js
-    $ prettier-standard-formatter index.js src/**/*.js
+    $ prettier-semistandard
+    $ prettier-semistandard index.js
+    $ prettier-semistandard foo.js bar.js
+    $ prettier-semistandard index.js src/**/*.js
 ```
 
 _Note: CLI will use your local installation of Prettier Standard Formatter if it's available._
