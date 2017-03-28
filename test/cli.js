@@ -1,6 +1,11 @@
 const tape = require('tape');
 
-tape.test('todo', test => {
-  test.plan(1);
-  test.equal(true, true, 'todo');
+tape.test('cli', test => {
+  test.plan(3);
+
+  test.skip('Help should be shown if no args used');
+
+  test.skip('stdin should be processed if provided');
+
+  test.skip('Globs should be processed if stdin not provided');
 });

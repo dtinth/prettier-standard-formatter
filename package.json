@@ -19,6 +19,8 @@
   },
   "devDependencies": {
     "faucet": "0.0.1",
+    "mkdirp": "^0.5.1",
+    "rimraf": "^2.6.1",
     "snazzy": "^6.0.0",
     "tap-xunit": "^1.7.0",
     "tape": "^4.6.3"

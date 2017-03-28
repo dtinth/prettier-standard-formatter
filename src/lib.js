@@ -2,7 +2,7 @@ const Promise = require('bluebird');
 const R = require('ramda');
 const fs = require('mz/fs');
 const prettier = require('prettier');
-const semistandard = require('semistandard');
+const linter = require('semistandard');
 const recursiveReaddir = Promise.promisify(require('recursive-readdir'));
 
 // Run linter on a string
@@ -10,12 +10,11 @@ const recursiveReaddir = Promise.promisify(require('recursive-readdir'));
 const lint = code =>
   new Promise((resolve, reject) =>
   // Standard-engine doesn't support promisify
-    semistandard.lintText(code, { fix: true }, (error, result) => {
+    linter.lintText(code, { fix: true }, (error, result) => {
       if (error) {
         return reject(error);
       }
-      const output = result.results[0].output;
-      return resolve(output || code);
+      return resolve(result.results[0].output || code);
     }));
 
 // Run prettier on a string
@@ -62,6 +61,7 @@ const formatFile = path =>
   )(path);
 
 module.exports = {
+  lint,
   pretty,
   format,
   formatFile,
